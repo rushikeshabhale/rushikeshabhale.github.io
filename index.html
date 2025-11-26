@@ -9,17 +9,13 @@
   <meta name="description" content="Raj Kale — Mechanical Design & Automation Engineer. Portfolio showcasing projects in automation, machining, and product development." />
   <style>
     :root{
-      /* Base colors */
       --bg:#ffffff;
       --text:#000000;
       --muted:#555555;
       --card:#f8f9fa;
-
-      /* Accents */
       --accent-primary:#0057FF;
       --accent-yellow:#FFCC00;
       --accent-warm:#FF4500;
-
       --glass: rgba(0,0,0,0.03);
       --radius:14px;
       --glow:0 8px 30px rgba(0,87,255,0.08);
@@ -51,89 +47,52 @@
       font-size: 4rem;
       font-weight: 800;
       line-height: 1.1;
-      margin: 0 0 20px 0;
+      margin: 0 0 10px 0;
       cursor: default;
       transition: transform 0.3s ease;
     }
     .hero h1:hover { transform: scale(1.05); }
-    .hero p.lead {
+    .hero-subtitle {
       font-size: 1.5rem;
       font-weight: 500;
       color: rgba(255,255,255,0.85);
-      max-width: 800px;
       margin-bottom: 30px;
     }
     .hero .cta {
       flex-wrap: wrap;
+      display: flex;
+      gap: 12px;
     }
-    .hero .btn {
-      margin-right: 12px;
+    .hero .cta a {
       font-size: 1.1rem;
       padding: 16px 24px;
       box-shadow: 0 4px 20px rgba(0,87,255,0.3);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      color: #fff;
       transition: all 0.3s ease;
     }
-    .hero .btn:hover {
+    .hero .cta a:hover {
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 8px 30px rgba(0,87,255,0.4);
       background: var(--accent-warm);
       color: #fff;
+    }
+    .hero .cta a.secondary {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+    }
+    .hero .cta a.secondary:hover {
+      background: #fff;
+      color: var(--accent-primary);
     }
 
     .wrap{
       max-width:1100px;
       margin:36px auto;
       padding:28px;
-    }
-
-    header{
-      display:flex;
-      align-items:center;
-      gap:20px;
-      justify-content: space-between;
-    }
-
-    .avatar{
-      width:92px;
-      height:92px;
-      border-radius:12px;
-      background:linear-gradient(135deg,var(--accent-primary),var(--accent-warm));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:28px;
-      color:#fff;
-      box-shadow:var(--glow);
-    }
-
-    h1.main{
-      margin:0;
-      font-size:2rem;
-      color: var(--accent-primary);
-    }
-
-    p.lead{
-      margin:8px 0 0;
-      color:var(--muted);
-      font-weight:500;
-    }
-
-    nav{
-      display:flex;
-      gap:12px;
-    }
-    nav a{
-      color:var(--text);
-      text-decoration:none;
-      padding:8px 12px;
-      border-radius:10px;
-      font-weight:600;
-      transition: all 0.25s ease;
-    }
-    nav a:hover{
-      color:#fff;
-      background: var(--accent-primary);
     }
 
     .card{
@@ -156,44 +115,6 @@
       display:flex;
       gap:12px;
       margin-top:16px;
-    }
-
-    .btn{
-      background:var(--accent-primary);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:700;
-      transition: all 0.25s ease;
-    }
-    .btn:hover{
-      background: var(--accent-warm);
-    }
-
-    .btn.secondary{
-      background:transparent;
-      border:1px solid var(--accent-primary);
-      color:var(--accent-primary);
-    }
-    .btn.secondary:hover{
-      background: var(--accent-primary);
-      color:#fff;
-    }
-
-    .skills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:10px;
-    }
-    .pill{
-      padding:8px 10px;
-      border-radius:999px;
-      background:var(--glass);
-      color:var(--muted);
-      font-weight:600;
-      font-size:13px;
     }
 
     section{
@@ -257,9 +178,8 @@
     @media (max-width:640px){
       .projects{grid-template-columns:1fr;}
       .wrap{padding:18px;}
-      .avatar{width:72px;height:72px;}
       .hero h1{font-size:3rem;}
-      .hero p.lead{font-size:1.2rem;}
+      .hero-subtitle{font-size:1.2rem;}
     }
 
     /* Modal */
@@ -300,29 +220,16 @@
   <!-- Hero -->
   <section class="hero">
     <h1>Raj Kale</h1>
-    <p class="lead">Mechanical Design & Automation Engineer — Building practical, reliable, and efficient mechanical systems.</p>
+    <h2 class="hero-subtitle">Mechanical Design & Automation Engineer</h2>
     <div class="cta">
-      <a href="#projects" class="btn">View Projects</a>
-      <a href="#download" class="btn secondary">Download Portfolio</a>
+      <a href="#about" class="secondary">About</a>
+      <a href="#projects" class="secondary">Projects</a>
+      <a href="./site-download.zip" class="secondary">Download Portfolio</a>
+      <a href="#contact" class="secondary">Contact</a>
     </div>
   </section>
 
   <div class="wrap">
-    <!-- Header -->
-    <header>
-      <div style="display:flex;align-items:center;gap:14px">
-        <div class="avatar">RK</div>
-        <div>
-          <h1 class="main">Raj Kale</h1>
-          <p class="lead">Mechanical Design & Automation Engineer</p>
-        </div>
-      </div>
-      <nav aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
     <!-- About Section -->
     <section id="about">
