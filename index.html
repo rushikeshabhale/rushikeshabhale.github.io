@@ -1,93 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raj Kale | Mechanical Design & Automation Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Raj Kale — Mechanical Design & Automation</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Raj Kale — Mechanical Design & Automation Engineer. Portfolio showcasing projects in automation, machining, and product development." />
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f6f6f6; color:#222; }
-    header { background:#111; color:white; padding:40px 20px; text-align:center; }
-    header h1 { margin:0; font-size:2.5rem; }
-    header p { margin-top:10px; font-size:1.1rem; }
-    nav { background:#222; padding:10px 20px; text-align:center; }
-    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
-    .section { max-width:1000px; margin:50px auto; padding:0 20px; }
-    h2 { border-left:5px solid #444; padding-left:10px; }
-    .card { background:white; padding:20px; border-radius:10px; margin:20px 0; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
-    .project-title { font-size:1.2rem; font-weight:bold; }
-    footer { background:#111; color:white; padding:40px 20px; text-align:center; margin-top:50px; }
-    .download-btn { display:inline-block; margin-top:20px; padding:12px 20px; background:#444; color:white; border-radius:8px; text-decoration:none; }
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#06b6d4; --glass: rgba(255,255,255,0.04);
+      --radius:14px; --maxw:1100px; --glow: 0 8px 30px rgba(6,182,212,0.08);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;background:linear-gradient(180deg,#071020 0%,var(--bg) 100%);color:#e6eef6;line-height:1.45}
+    .wrap{max-width:var(--maxw);margin:36px auto;padding:28px}
+    header{display:flex;align-items:center;gap:20px}
+    .avatar{width:92px;height:92px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#8b5cf6);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px;color:#021018;box-shadow:var(--glow)}
+    h1{margin:0;font-size:1.6rem}
+    p.lead{margin:8px 0 0;color:var(--muted)}
+
+    nav{display:flex;gap:12px;margin-left:auto}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
+    nav a:hover{color:#fff;background:rgba(255,255,255,0.03)}
+
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:28px;margin-top:28px;align-items:start}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.012)); padding:20px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(0,0,0,0.4)}
+
+    .about strong{color:var(--accent)}
+    .cta{display:flex;gap:12px;margin-top:16px}
+    .btn{background:var(--accent);color:#012026;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);}
+
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .pill{padding:8px 10px;border-radius:999px;background:var(--glass);color:var(--muted);font-weight:600;font-size:13px}
+
+    section{margin-top:28px}
+    h2.section-title{margin:0 0 12px;padding-left:8px;border-left:4px solid rgba(255,255,255,0.04);color:#fff}
+
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .project{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));transition:transform .25s ease, box-shadow .25s ease;cursor:pointer}
+    .project:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(2,6,23,0.6)}
+    .project h3{margin:0 0 6px;font-size:1rem}
+    .meta{color:var(--muted);font-size:13px}
+
+    .contact-grid{display:flex;gap:14px;flex-wrap:wrap}
+    .contact-card{flex:1;min-width:220px}
+
+    footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.projects{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.projects{grid-template-columns:1fr}.wrap{padding:18px}.avatar{width:72px;height:72px}}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;background:linear-gradient(0deg, rgba(2,6,23,0.7), rgba(2,6,23,0.85));z-index:40}
+    .modal.open{display:flex}
+    .modal-card{max-width:900px;width:100%;background:#071428;padding:22px;border-radius:16px}
+    .modal .close{float:right;background:transparent;border:none;color:var(--muted);font-weight:700}
+
+    /* small helpers */
+    .impact{margin-top:10px;color:#a7f3d0;font-weight:700}
+    .muted{color:var(--muted)}
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <header>
+      <div style="display:flex;align-items:center;gap:14px">
+        <div class="avatar">RK</div>
+        <div>
+          <h1>Raj Kale</h1>
+          <p class="lead">Mechanical Design & Automation Engineer — Building practical, reliable, and efficient mechanical systems.</p>
+        </div>
+      </div>
 
-<header>
-  <h1>Raj Kale</h1>
-  <p>Mechanical Engineer • Mechanical Design • Automation • Industry 4.0</p>
-</header>
+      <nav aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#download" class="btn" style="margin-left:12px">Download Site</a>
+      </nav>
+    </header>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</nav>
+    <main>
+      <section class="hero">
+        <div class="card about">
+          <h2 class="section-title">About</h2>
+          <p style="margin-top:10px">I design mechanical systems that work — in real industrial environments, under real constraints. I combine systems thinking with hands-on prototyping and an obsession for reliability.</p>
+          <div class="skills" aria-hidden>
+            <span class="pill">Mechanical Design</span>
+            <span class="pill">Automation</span>
+            <span class="pill">Mechatronics</span>
+            <span class="pill">DFMA</span>
+            <span class="pill">FEA / FEM</span>
+            <span class="pill">Siemens TIA Portal</span>
+          </div>
 
-<section id="about" class="section">
-  <h2>About Me</h2>
-  <div class="card">
-    <p>I’m a Mechanical Design & Automation engineer with experience in prototyping labs, R&D, and industrial system design. I focus on systems thinking, hands-on development, optimization, and safety-driven engineering.</p>
+          <div class="cta">
+            <a href="#projects" class="btn">View Projects</a>
+            <a href="#contact" class="btn secondary">Contact Me</a>
+          </div>
+        </div>
+
+        <aside class="card">
+          <h3 style="margin:0">Snapshot</h3>
+          <p class="muted">Mechanical Design · Automation · Prototyping · Commissioning</p>
+          <div style="margin-top:12px">
+            <div class="muted">Location</div>
+            <div>Berlin, Germany</div>
+          </div>
+          <div style="margin-top:12px">
+            <div class="muted">Email</div>
+            <div><a href="mailto:rajkale@gmail.com">rajkale@gmail.com</a></div>
+          </div>
+          <div style="margin-top:12px">
+            <div class="muted">LinkedIn</div>
+            <div><a href="https://www.linkedin.com/in/raj-kale" target="_blank">raj-kale</a></div>
+          </div>
+          <div style="margin-top:18px;text-align:center">
+            <a class="btn" href="./site-download.zip" id="downloadBtn">Download Website</a>
+            <div style="margin-top:8px;font-size:13px;color:var(--muted)">Includes code & resume (optional)</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects">
+          <div class="project" data-project="riveting">
+            <h3>Precision Riveting Machine</h3>
+            <div class="meta">Automotive · Assembly · High-precision</div>
+            <div class="impact">±25 µm · 98.5% FPY · &lt;2 min changeover</div>
+          </div>
+
+          <div class="project" data-project="sweeper">
+            <h3>Autonomous Sweeping Robot (Subsystems)</h3>
+            <div class="meta">Robotics · IP65 · DFMA</div>
+            <div class="impact">+45% cleaning efficiency · ~30% faster assembly</div>
+          </div>
+
+          <div class="project" data-project="elr">
+            <h3>Seat-Belt ELR Assembly Line</h3>
+            <div class="meta">Automotive · Line modernization</div>
+            <div class="impact">Cycle 12s → 6s · Operators 12 → 5</div>
+          </div>
+
+          <div class="project" data-project="heatshrink">
+            <h3>Buckle Strap Heat-Shrink Station</h3>
+            <div class="meta">Safety · Semi-automatic</div>
+            <div class="impact">~3s/part throughput</div>
+          </div>
+
+          <div class="project" data-project="packaging">
+            <h3>FMCG Packaging Optimization</h3>
+            <div class="meta">Parametric design · Laser cutting</div>
+            <div class="impact">–24% laser time</div>
+          </div>
+
+          <div class="project" data-project="slitting">
+            <h3>Tube Slitting Machine</h3>
+            <div class="meta">Defense · SPM</div>
+            <div class="impact">Clean cuts · No deformation</div>
+          </div>
+
+          <div class="project" data-project="sieve">
+            <h3>Flame-Proof Sieve Shaker</h3>
+            <div class="meta">Defense testing · Explosion-safe</div>
+            <div class="impact">Certified flame-proof design</div>
+          </div>
+
+          <div class="project" data-project="trainer">
+            <h3>Technical Trainer — Mechatronics Lab</h3>
+            <div class="meta">Training · Automation · CAD</div>
+            <div class="impact">250+ students trained</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="card contact-grid">
+          <div class="contact-card">
+            <strong>Email</strong>
+            <div><a href="mailto:rajkale@gmail.com">rajkale@gmail.com</a></div>
+          </div>
+          <div class="contact-card">
+            <strong>Mobile</strong>
+            <div>+49 151 14254563</div>
+          </div>
+          <div class="contact-card">
+            <strong>LinkedIn</strong>
+            <div><a href="https://www.linkedin.com/in/raj-kale" target="_blank">raj-kale</a></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      © 2025 Raj Kale — Mechanical Design & Automation • Built with care
+    </footer>
   </div>
-</section>
 
-<section id="experience" class="section">
-  <h2>Experience</h2>
-  <div class="card">
-    <p><strong>Technical Trainer</strong> — SRH Hochschule Berlin (2024–2025)</p>
-    <p><strong>Mechanical Design Engineer</strong> — ENWAY (2020–2022)</p>
-    <p><strong>Mechanical Design Engineer</strong> — Autotechnik India (2017–2019)</p>
-    <p><strong>CAD Engineer</strong> — Digimind (2021)</p>
-  </div>
-</section>
-
-<section id="projects" class="section">
-  <h2>Featured Projects</h2>
-
-  <div class="card">
-    <div class="project-title">Precision Riveting Machine</div>
-    <p>Lead Mechanical Design Engineer — ±25 µm accuracy, 98.5% FPY, rapid changeover.</p>
+  <!-- Modal for project details -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <button class="close" id="closeModal">Close ✕</button>
+      <div id="modalContent"></div>
+    </div>
   </div>
 
-  <div class="card">
-    <div class="project-title">Autonomous Sweeping Robot (Subsystems)</div>
-    <p>Developed IP65 enclosures, brush optimization, +45% cleaning efficiency.</p>
-  </div>
+  <script>
+    const projects = {
+      riveting:{title:'Precision Riveting Machine', body:`<p><strong>Role:</strong> Lead Mechanical Design</p><p>High-accuracy riveting station for seat-belt buckle assemblies. Integrated hydropneumatic press, LVDT gauging and quick-change fixtures. Delivered documentation and commissioning support.</p><p class='impact'>±25 µm accuracy · 98.5% FPY · &lt;2 min changeover</p><p class='muted'>Tools: Creo · ANSYS · DFMA · Pneumatics · Siemens PLC Interface</p>`},
+      sweeper:{title:'Autonomous Sweeping Robot (Subsystems)', body:`<p><strong>Role:</strong> Mechanical Design Engineer</p><p>Designed IP65 enclosures, brush kinematics and production fixtures. Bench-tested brush parameters and transitioned prototypes to production.</p><p class='impact'>+45% cleaning efficiency · ~30% faster assembly</p><p class='muted'>Tools: SolidWorks · PDM · DFMA</p>`},
+      elr:{title:'Seat-Belt ELR Assembly Line', body:`<p><strong>Role:</strong> Project Lead</p><p>Modernized a semi-automated ELR assembly line with servo winding, hydro-pneumatic riveting and rotary indexing to improve throughput and uptime.</p><p class='impact'>Cycle time 12s → 6s · Operators 12 → 5</p><p class='muted'>Tools: Creo · GD&T · SMED</p>`},
+      heatshrink:{title:'Buckle Strap Heat-Shrink Station', body:`<p><strong>Role:</strong> Mechanical Design Engineer</p><p>Semi-automatic dual-fixture heat-shrink machine with integrated safety interlocks and validated heat profiles.</p><p class='impact'>~3s/part throughput</p><p class='muted'>Tools: DFMA · Pneumatics</p>`},
+      packaging:{title:'FMCG Packaging Optimization', body:`<p><strong>Role:</strong> CAD Engineer</p><p>Parametric cardboard design optimized via DOE and FEA to reduce laser processing time while keeping structural integrity.</p><p class='impact'>–24% laser time</p><p class='muted'>Tools: Inventor · ANSYS</p>`},
+      slitting:{title:'Tube Slitting Machine', body:`<p><strong>Role:</strong> Mechanical Design Engineer</p><p>SPM with 6-blade rotary head, precision chucking and linear feed for vacuum-cast tubes.</p><p class='impact'>Clean cuts · No deformation</p><p class='muted'>Tools: Creo · Linear Motion Systems</p>`},
+      sieve:{title:'Flame-Proof Sieve Shaker', body:`<p><strong>Role:</strong> Mechanical Design Engineer</p><p>Explosion-safe test rig with cam-based tapping, elastomer damping and flame-proof enclosure for defense testing.</p><p class='impact'>Certified flame-proof design</p><p class='muted'>Tools: DFMA · Safety Design</p>`},
+      trainer:{title:'Technical Trainer — Mechatronics Lab', body:`<p><strong>Role:</strong> Trainer</p><p>Delivered hands-on workshops in PLCs, mechatronics hardware and CAD. Developed lab exercises and trained 250+ students.</p><p class='impact'>250+ students trained</p><p class='muted'>Tools: Siemens TIA Portal · Inventor</p>`}
+    }
 
-  <div class="card">
-    <div class="project-title">Seat-Belt ELR Assembly Line</div>
-    <p>Project Lead — Doubled throughput, major ergonomic upgrade, servo-driven systems.</p>
-  </div>
+    document.querySelectorAll('.project').forEach(el=>{
+      el.addEventListener('click',()=>{
+        const id = el.getAttribute('data-project');
+        const modal = document.getElementById('modal');
+        document.getElementById('modalContent').innerHTML = `<h2 style="margin-top:0">${projects[id].title}</h2>`+projects[id].body;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+      })
+    })
+    document.getElementById('closeModal').addEventListener('click',()=>{
+      const modal = document.getElementById('modal'); modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+    })
 
-  <div class="card">
-    <div class="project-title">FMCG Packaging Optimization</div>
-    <p>-24% laser time using DOE & FEA; 100+ parametric iterations.</p>
-  </div>
-</section>
+    // keyboard close
+    window.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ document.getElementById('modal').classList.remove('open'); }});
 
-<section id="contact" class="section">
-  <h2>Contact</h2>
-  <div class="card">
-    <p><strong>Email:</strong> rajkale@gmail.com</p>
-    <p><strong>Mobile:</strong> +49 151 14254563</p>
-    <p><strong>LinkedIn:</strong> raj-kale</p>
-  </div>
-
-  <a class="download-btn" href="./site-download.zip">Download Complete Website</a>
-</section>
-
-<footer>
-  © 2025 Raj Kale — Portfolio Website
-</footer>
-
+    // smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){
+      e.preventDefault(); const t=document.querySelector(this.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+    }));
+  </script>
 </body>
 </html>
