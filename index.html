@@ -1,111 +1,409 @@
-<!-- Hero Section -->
-<section class="hero">
-  <h1>Raj Kale</h1>
-  <h2 class="hero-subtitle">Mechanical Design & Automation Engineer</h2>
-  <div class="cta">
-    <a href="#about" class="secondary">About</a>
-    <a href="#projects" class="secondary">Projects</a>
-    <a href="./site-download.zip" class="secondary">Download Portfolio</a>
-    <a href="#contact" class="secondary">Contact</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Raj Kale — Mechanical Design & Automation</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Raj Kale — Mechanical Design & Automation Engineer. Portfolio showcasing projects in automation, machining, and product development." />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#000000;
+      --muted:#555555;
+      --card:#f8f9fa;
+      --accent-primary:#0057FF;
+      --accent-yellow:#FFCC00;
+      --accent-warm:#FF4500;
+      --glass: rgba(0,0,0,0.03);
+      --radius:14px;
+      --glow:0 8px 30px rgba(0,87,255,0.08);
+    }
+
+    *{box-sizing:border-box;}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      margin:0;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.45;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 80px 10%;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-warm));
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0 0 10px 0;
+      cursor: default;
+      transition: transform 0.3s ease;
+    }
+    .hero h1:hover { transform: scale(1.05); }
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 30px;
+    }
+    .hero .cta {
+      flex-wrap: wrap;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    .hero .cta a {
+      font-size: 1.1rem;
+      padding: 16px 24px;
+      box-shadow: 0 4px 20px rgba(0,87,255,0.3);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    .hero .cta a:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(0,87,255,0.4);
+      background: var(--accent-warm);
+      color: #fff;
+    }
+    .hero .cta a.secondary {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+    }
+    .hero .cta a.secondary:hover {
+      background: #fff;
+      color: var(--accent-primary);
+    }
+
+    .wrap{
+      max-width:1100px;
+      margin:36px auto;
+      padding:28px;
+    }
+
+    .card{
+      background:var(--card);
+      padding:20px;
+      border-radius:var(--radius);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .about strong{
+      color:var(--accent-primary);
+    }
+
+    section{
+      margin-top:28px;
+    }
+    h2.section-title{
+      margin:0 0 12px;
+      padding-left:8px;
+      border-left:4px solid var(--accent-yellow);
+      color: var(--accent-primary);
+      font-size:1.4rem;
+    }
+
+    /* Skills Section */
+    .skills-category { margin-bottom: 16px; text-align: left; }
+    .skills-category strong { display: block; margin-bottom: 6px; font-weight: 600; }
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background: var(--glass);
+      color: var(--text);
+      font-size:13px;
+      font-weight:600;
+      margin:4px 4px 0 0;
+    }
+
+    /* Experience Section */
+    .experience-card, .education-card { margin-bottom: 16px; }
+
+    .meta { color: var(--muted); font-size: 0.9rem; display: block; margin-bottom: 6px; }
+
+    /* Projects */
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    .project{
+      padding:16px;
+      border-radius:12px;
+      background: var(--card);
+      cursor:pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .project:hover{
+      transform:translateY(-6px);
+      box-shadow:0 12px 40px rgba(0,87,255,0.2);
+    }
+    .project h3{
+      margin:0 0 6px;
+      font-size:1rem;
+      color:var(--accent-warm);
+    }
+
+    /* Contact */
+    .contact-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .contact-card{
+      flex:1;
+      min-width:220px;
+    }
+
+    footer{
+      margin-top:40px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Responsive */
+    @media (max-width:980px){ .projects{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:640px){
+      .projects{grid-template-columns:1fr;}
+      .wrap{padding:18px;}
+      .hero h1{font-size:3rem;}
+      .hero-subtitle{font-size:1.2rem;}
+    }
+
+    /* Modal */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      background:rgba(0,0,0,0.6);
+      z-index:40;
+    }
+    .modal.open{display:flex}
+    .modal-card{
+      max-width:900px;
+      width:100%;
+      background:#ffffff;
+      padding:22px;
+      border-radius:16px;
+    }
+    .modal .close{
+      float:right;
+      background:transparent;
+      border:none;
+      color:var(--muted);
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    /* small helpers */
+    .impact{margin-top:10px;color:var(--accent-primary);font-weight:700}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Raj Kale</h1>
+    <h2 class="hero-subtitle">Mechanical Design & Automation Engineer</h2>
+    <div class="cta">
+      <a href="#about" class="secondary">About</a>
+      <a href="#projects" class="secondary">Projects</a>
+      <a href="./site-download.zip" class="secondary">Download Portfolio</a>
+      <a href="#contact" class="secondary">Contact</a>
+    </div>
+  </section>
+
+  <div class="wrap">
+
+    <!-- About -->
+    <section id="about">
+      <div class="card about">
+        <h2 class="section-title">About</h2>
+        <p>I design mechanical systems that work — in real industrial environments, under real constraints. I combine systems thinking with hands-on prototyping and an obsession for reliability.</p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills & Tools</h2>
+      <div class="skills-category">
+        <strong>Mechanical & Automation:</strong>
+        <span class="pill">Mechanical Design</span>
+        <span class="pill">Mechatronics</span>
+        <span class="pill">Automated Systems</span>
+        <span class="pill">DFMA, GD&T, Tolerance Analysis</span>
+        <span class="pill">FEA / FEM</span>
+        <span class="pill">Prototyping & Testing</span>
+      </div>
+      <div class="skills-category">
+        <strong>Software:</strong>
+        <span class="pill">SolidWorks</span>
+        <span class="pill">Creo</span>
+        <span class="pill">Inventor</span>
+        <span class="pill">AutoCAD</span>
+        <span class="pill">NX</span>
+        <span class="pill">ANSYS</span>
+      </div>
+      <div class="skills-category">
+        <strong>Validation / Commissioning:</strong>
+        <span class="pill">FAT · SAT</span>
+        <span class="pill">RAMS</span>
+        <span class="pill">Documentation & SOPs</span>
+      </div>
+      <div class="skills-category">
+        <strong>Automation Tools:</strong>
+        <span class="pill">Pneumatics</span>
+        <span class="pill">Hydraulics</span>
+        <span class="pill">Sensors</span>
+        <span class="pill">Actuators</span>
+        <span class="pill">Siemens TIA Portal</span>
+      </div>
+      <div class="skills-category">
+        <strong>Languages:</strong>
+        <span class="pill">English (C2)</span>
+        <span class="pill">German (B2)</span>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+      <div class="experience-card card">
+        <h3>Technical Trainer — SRH Hochschule, Berlin</h3>
+        <span class="meta">2024 – 2025</span>
+        <p>Trained students in automation, sensors, PLCs, actuators, and CAD, preparing them for real industrial roles.</p>
+      </div>
+      <div class="experience-card card">
+        <h3>Mechanical Design Engineer — ENWAY, Berlin</h3>
+        <span class="meta">2020 – 2022</span>
+        <p>Designed and refined IP65-rated subsystems and improved cleaning performance for autonomous industrial robots.</p>
+      </div>
+      <div class="experience-card card">
+        <h3>Mechanical Design Engineer — Autotechnik, India</h3>
+        <span class="meta">2017 – 2019</span>
+        <p>Developed automated machines for automotive safety components and supported end-to-end commissioning.</p>
+      </div>
+      <div class="experience-card card">
+        <h3>CAD Engineer — Digimind, Berlin</h3>
+        <span class="meta">2021</span>
+        <p>Created parametric packaging models and optimized laser-cutting workflows.</p>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="education-card card">
+        <h3>M.Eng. Engineering & Sustainable Technology — Industry 4.0</h3>
+        <span class="meta">SRH Hochschule Berlin · 2020 – 2022</span>
+      </div>
+      <div class="education-card card">
+        <h3>B.Eng. Mechanical Engineering</h3>
+        <span class="meta">University of Pune · 2013 – 2017</span>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects">
+        <div class="project" data-project="riveting">
+          <h3>Precision Riveting Machine</h3>
+          <div class="meta">Automotive · Assembly · High-precision</div>
+          <div class="impact">±25 µm · 98.5% FPY · &lt;2 min changeover</div>
+        </div>
+        <div class="project" data-project="sweeper">
+          <h3>Autonomous Sweeping Robot (Subsystems)</h3>
+          <div class="meta">Robotics · IP65 · DFMA</div>
+          <div class="impact">+45% cleaning efficiency · ~30% faster assembly</div>
+        </div>
+        <div class="project" data-project="elr">
+          <h3>Seat-Belt ELR Assembly Line</h3>
+          <div class="meta">Automotive · Line modernization</div>
+          <div class="impact">Cycle 12s → 6s · Operators 12 → 5</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card contact-grid">
+        <div class="contact-card">
+          <strong>Email</strong>
+          <div><a href="mailto:rajkale@gmail.com">rajkale@gmail.com</a></div>
+        </div>
+        <div class="contact-card">
+          <strong>Mobile</strong>
+          <div>+49 151 14254563</div>
+        </div>
+        <div class="contact-card">
+          <strong>LinkedIn</strong>
+          <div><a href="https://www.linkedin.com/in/raj-kale" target="_blank">raj-kale</a></div>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
 
-<div class="wrap">
+  <!-- Modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <button class="close" id="closeModal">Close ✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="card about">
-      <h2 class="section-title">About</h2>
-      <p>I design mechanical systems that work — in real industrial environments, under real constraints. I combine systems thinking with hands-on prototyping and an obsession for reliability.</p>
-    </div>
-  </section>
+  <!-- JS for projects modal & smooth scroll -->
+  <script>
+    const projects = {
+      riveting:{title:'Precision Riveting Machine', body:`<p><strong>Role:</strong> Lead Mechanical Design</p><p>High-accuracy riveting station for seat-belt buckle assemblies. Integrated hydropneumatic press, LVDT gauging and quick-change fixtures. Delivered documentation and commissioning support.</p><p class='impact'>±25 µm accuracy · 98.5% FPY · &lt;2 min changeover</p><p class='muted'>Tools: Creo · ANSYS · DFMA · Pneumatics · Siemens PLC Interface</p>`},
+      sweeper:{title:'Autonomous Sweeping Robot (Subsystems)', body:`<p><strong>Role:</strong> Mechanical Design Engineer</p><p>Designed IP65 enclosures, brush kinematics and production fixtures. Bench-tested brush parameters and transitioned prototypes to production.</p><p class='impact'>+45% cleaning efficiency · ~30% faster assembly</p><p class='muted'>Tools: SolidWorks · PDM · DFMA</p>`},
+      elr:{title:'Seat-Belt ELR Assembly Line', body:`<p><strong>Role:</strong> Project Lead</p><p>Modernized a semi-automated ELR assembly line with servo winding, hydro-pneumatic riveting and rotary indexing to improve throughput and uptime.</p><p class='impact'>Cycle time 12s → 6s · Operators 12 → 5</p><p class='muted'>Tools: Creo · GD&T · SMED</p>`},
+    }
 
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2 class="section-title">Skills & Tools</h2>
-    <div class="skills-category">
-      <strong>Mechanical & Automation:</strong>
-      <span class="pill">Mechanical Design</span>
-      <span class="pill">Mechatronics</span>
-      <span class="pill">Automated Systems</span>
-      <span class="pill">DFMA, GD&T, Tolerance Analysis</span>
-      <span class="pill">FEA / FEM</span>
-      <span class="pill">Prototyping & Testing</span>
-    </div>
-    <div class="skills-category">
-      <strong>Software:</strong>
-      <span class="pill">SolidWorks</span>
-      <span class="pill">Creo</span>
-      <span class="pill">Inventor</span>
-      <span class="pill">AutoCAD</span>
-      <span class="pill">NX</span>
-      <span class="pill">ANSYS</span>
-    </div>
-    <div class="skills-category">
-      <strong>Validation / Commissioning:</strong>
-      <span class="pill">FAT · SAT</span>
-      <span class="pill">RAMS</span>
-      <span class="pill">Documentation & SOPs</span>
-    </div>
-    <div class="skills-category">
-      <strong>Automation Tools:</strong>
-      <span class="pill">Pneumatics</span>
-      <span class="pill">Hydraulics</span>
-      <span class="pill">Sensors</span>
-      <span class="pill">Actuators</span>
-      <span class="pill">Siemens TIA Portal</span>
-    </div>
-    <div class="skills-category">
-      <strong>Languages:</strong>
-      <span class="pill">English (C2)</span>
-      <span class="pill">German (B2)</span>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience">
-    <h2 class="section-title">Experience</h2>
-    <div class="experience-card card">
-      <h3>Technical Trainer — SRH Hochschule, Berlin</h3>
-      <span class="meta">2024 – 2025</span>
-      <p>Trained students in automation, sensors, PLCs, actuators, and CAD, preparing them for real industrial roles.</p>
-    </div>
-    <div class="experience-card card">
-      <h3>Mechanical Design Engineer — ENWAY, Berlin</h3>
-      <span class="meta">2020 – 2022</span>
-      <p>Designed and refined IP65-rated subsystems and improved cleaning performance for autonomous industrial robots.</p>
-    </div>
-    <div class="experience-card card">
-      <h3>Mechanical Design Engineer — Autotechnik, India</h3>
-      <span class="meta">2017 – 2019</span>
-      <p>Developed automated machines for automotive safety components and supported end-to-end commissioning.</p>
-    </div>
-    <div class="experience-card card">
-      <h3>CAD Engineer — Digimind, Berlin</h3>
-      <span class="meta">2021</span>
-      <p>Created parametric packaging models and optimized laser-cutting workflows.</p>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education">
-    <h2 class="section-title">Education</h2>
-    <div class="education-card card">
-      <h3>M.Eng. Engineering & Sustainable Technology — Industry 4.0</h3>
-      <span class="meta">SRH Hochschule Berlin · 2020 – 2022</span>
-    </div>
-    <div class="education-card card">
-      <h3>B.Eng. Mechanical Engineering</h3>
-      <span class="meta">University of Pune · 2013 – 2017</span>
-    </div>
-  </section>
-
-</div>
-
-<!-- CSS Additions -->
-<style>
-.skills-category { margin-bottom: 16px; }
-.skills-category strong { display: block; margin-bottom: 6px; font-weight: 600; }
-.experience-card, .education-card { margin-bottom: 16px; }
-.meta { color: var(--muted); font-size: 0.9rem; display: block; margin-bottom: 6px; }
-</style>
+    document.querySelectorAll('.project').forEach(el=>{
+      el.addEventListener('click',()=>{
+        const id = el.getAttribute('data-project');
+        const modal = document.getElementById('modal');
+        document.getElementById('modalContent').innerHTML = `<h2 style="margin-top:0">${projects[id].title}</h2>`+projects[id].body;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+      })
+    })
+    document.getElementById('closeModal').addEventListener('click',()=>{
+      const modal = document.getElementById('modal'); modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+    })
+    window.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ document.getElementById('modal').classList.remove('open'); }});
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){
+      e.preventDefault(); const t=document.querySelector(this.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+    }));
+  </script>
+</body>
+</html>
