@@ -1,120 +1,370 @@
+<!-- NEW ULTRA-CLEAN, MODERN, PREMIUM PORTFOLIO → FULL REBUILD -->
+<!-- Palette: Deep Blue #0c2788 | Accent Orange #ff4027 | Soft White #f4f3f9 | Dark Ink #0f0c1f -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rushikesh Abhale — Mechanical Design & Automation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rushikesh Abhale — Mechanical Design & Automation Engineer</title>
 <style>
-body{margin:0;font-family:Inter,Arial;background:#f4f3f9;color:#0f0c1f}
-nav{position:sticky;top:0;z-index:1000;background:#0c2788;color:#f4f3f9;display:flex;justify-content:space-between;padding:12px 32px;font-weight:600}
-nav a{color:#f4f3f9;text-decoration:none;margin-right:18px}
-nav a.active{color:#ff4027}
-.hero{background:#0c2788;color:#f4f3f9;padding:80px 20px;text-align:center}
-.hero .inner{max-width:1000px;margin:auto;display:flex;align-items:center;gap:40px}
-.hero img{width:180px;height:180px;border-radius:50%;background:#fff}
-.section{max-width:1100px;margin:60px auto;padding:0 20px}
-h2{color:#0c2788;margin-bottom:20px}
-.skills-grid,.projects-grid,.timeline{display:grid;gap:20px}
-.skills-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.skill-card{background:#fff;padding:16px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
-.projects-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.project-card{background:#fff;padding:16px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-.project-card img{width:100%;height:160px;background:#ddd;border-radius:8px;margin-bottom:10px}
-.timeline{border-left:4px solid #0c2788;padding-left:20px}
-.timeline-item{margin-bottom:30px;position:relative}
-.timeline-item::before{content:"";position:absolute;left:-14px;top:4px;width:14px;height:14px;background:#ff4027;border-radius:50%}
-.company-logo{width:90px;height:40px;background:#ccc;border-radius:6px;margin-bottom:8px}
-footer{text-align:center;margin:60px 0;color:#777}
-  /* Improved layout spacing */
-  section { padding: 100px 0; }
-  h2 { margin-bottom: 40px; }
+/* ---------------------------------------------------- */
+/* CORE RESET + TYPOGRAPHY */
+/* ---------------------------------------------------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Inter", sans-serif;
+  background: #f4f3f9;
+  color: #0f0c1f;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+h1, h2, h3 { font-weight: 800; }
+a { text-decoration: none; }
 
-  /* Smooth fade + slide animation */
-  .fade-in { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
+/* ---------------------------------------------------- */
+/* STICKY NAVIGATION BAR */
+/* ---------------------------------------------------- */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: #0c2788;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 999;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+}
+nav ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+nav ul li a {
+  color: #f4f3f9;
+  font-weight: 600;
+  transition: 0.2s;
+}
+nav ul li a:hover,
+nav ul li a.active {
+  color: #ff4027;
+}
+.download-btn {
+  background: #ff4027;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.25s;
+}
+.download-btn:hover {
+  background: white;
+  color: #ff4027;
+}
 
-  /* Hover highlights */
-  .card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.18); }
+/* ---------------------------------------------------- */
+/* HERO SECTION */
+/* ---------------------------------------------------- */
+.hero {
+  background: #0c2788;
+  padding: 180px 40px 140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f4f3f9;
+}
+.hero-text h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.hero-text h3 { color: #ffcc00; font-size: 1.6rem; margin-bottom: 14px; }
+.hero-text p { max-width: 520px; opacity: 0.9; }
+.hero-img img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #f4f3f9;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
 
-  /* Enhanced timeline */
-  .timeline { position: relative; margin: 60px auto; padding-left: 40px; border-left: 4px solid #0c2788; }
-  .timeline-item { margin-bottom: 50px; position: relative; padding-left: 30px; }
-  .timeline-item::before { content:''; position:absolute; left:-12px; top:5px; width:20px; height:20px; background:#ff4027; border-radius:50%; box-shadow:0 0 0 4px #f4f3f9; }
-  .timeline-item h3 { margin:0 0 5px; color:#0c2788; font-size:1.35rem; }
-  .timeline-item .year { font-weight:600; margin-bottom:10px; color:#ff4027; }
-  .timeline-item p { margin:0; color:#0f0c1f; line-height:1.6; }
+/* ---------------------------------------------------- */
+/* SECTION WRAPPER */
+/* ---------------------------------------------------- */
+section { padding: 120px 12%; }
+.section-title {
+  font-size: 2.6rem;
+  color: #0c2788;
+  margin-bottom: 60px;
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  width: 80px;
+  height: 6px;
+  background: #ff4027;
+  position: absolute;
+  left: 0;
+  bottom: -16px;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------- */
+/* ABOUT */
+/* ---------------------------------------------------- */
+.about p {
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+}
+
+/* ---------------------------------------------------- */
+/* SKILLS GRID */
+/* ---------------------------------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+.skill-card {
+  background: white;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+  transition: 0.25s;
+}
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+}
+.skill-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #0c2788;
+}
+
+/* ---------------------------------------------------- */
+/* EXPERIENCE — PREMIUM TIMELINE */
+/* ---------------------------------------------------- */
+.timeline {
+  position: relative;
+  margin-left: 30px;
+  padding-left: 40px;
+  border-left: 4px solid #0c2788;
+}
+.timeline-item {
+  margin-bottom: 60px;
+  position: relative;
+}
+.timeline-item::before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  background: #ff4027;
+  border-radius: 50%;
+  position: absolute;
+  left: -53px;
+  top: 0;
+  box-shadow: 0 0 0 6px #f4f3f9;
+}
+.company-logo {
+  width: 70px;
+  height: 70px;
+  background: #ddd;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+.timeline-item h3 { font-size: 1.5rem; margin-bottom: 4px; color: #0c2788; }
+.timeline-item .year { color: #ff4027; font-weight: 700; margin-bottom: 12px; }
+
+/* ---------------------------------------------------- */
+/* PROJECTS */
+/* ---------------------------------------------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 36px;
+}
+.project-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.project-img {
+  height: 220px;
+  background: #d7d7d7;
+}
+.project-content { padding: 22px; }
+.project-content h3 { margin-bottom: 8px; }
+.project-content p { opacity: 0.85; }
+
+/* ---------------------------------------------------- */
+/* FOOTER */
+/* ---------------------------------------------------- */
+footer {
+  background: #0c2788;
+  color: #f4f3f9;
+  text-align: center;
+  padding: 40px;
+  margin-top: 80px;
+}
 </style>
 </head>
 <body>
+
+<!-- ================================================== -->
+<!-- NAVIGATION -->
+<!-- ================================================== -->
 <nav>
-<div>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#experience">Experience</a>
-<a href="#contact">Contact</a>
-</div>
-<a href="./portfolio.pdf" download style="color:#f4f3f9">Download Portfolio</a>
+  <ul>
+    <li><a class="active" href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="download-btn" href="#">Download Portfolio</a>
 </nav>
+
+<!-- ================================================== -->
+<!-- HERO SECTION -->
+<!-- ================================================== -->
 <section class="hero">
-<h1>Mechanical Design & Automation Engineer</h1>
-<div class="inner">
-<img src="Me.jpeg" alt="Profile" />
-<div>
-<h2 style="color:#f4f3f9">Rushikesh Abhale</h2>
-<p>I design mechanical systems that work — in real industrial environments, under real constraints.</p>
-</div>
-</div>
+  <div class="hero-text">
+    <h3>Mechanical Design & Automation Engineer</h3>
+    <h1>Rushikesh<br>Abhale</h1>
+    <p>Building practical, reliable, and efficient mechanical systems.</p>
+  </div>
+  <div class="hero-img">
+    <img src="placeholder-profile.jpg" alt="Profile" />
+  </div>
 </section>
-<section class="section" id="about">
-<h2>About Me</h2>
-<p>I’m a mechanical engineer who enjoys solving practical problems — the kind that demand clear thinking, smart design choices, and hands-on development.</p>
-<p>Whether it’s a precision fixture, an automated station, or a subsystem for an autonomous robot, I like the moment when an idea becomes something real and reliable.</p>
-<ul>
-<li>Think in systems — understand how mechanical, electrical and control layers interact</li>
-<li>Build and test — because real insights happen on the shop floor, not only in CAD</li>
-<li>Simplify — better reliability often comes from fewer and smarter parts</li>
-<li>Design for real use — safety, robustness, tolerance, maintainability</li>
-</ul>
-<p>Today, I work across mechanical design, automation, and systems engineering — creating solutions that perform consistently where it matters most: in production.</p>
+
+<!-- ================================================== -->
+<!-- ABOUT -->
+<!-- ================================================== -->
+<section id="about" class="about">
+  <h2 class="section-title">About Me</h2>
+  <p>I design mechanical systems that work — in real industrial environments, under real constraints.</p>
+  <p>Whether it's a precision fixture, an automated station, or a subsystem for an autonomous robot, I focus on turning ideas into reliable hardware.</p>
+  <p>My approach is shaped by hands-on work in prototyping labs, R&D teams, assembly lines, and automation classrooms:</p>
+  <p>• Think in systems — mechanical, electrical, controls<br>
+     • Simplify — fewer, smarter parts<br>
+     • Build & test — insights come from the shop floor<br>
+     • Design for real use — reliability, safety, maintainability</p>
 </section>
-<section class="section" id="skills">
-<h2>Skills Overview</h2>
-<div class="skills-grid">
-<div class="skill-card"><h3>Mechanical & Automation</h3><p>Mechanical Design<br>Mechatronics<br>Automated Systems<br>DFMA, GD&T<br>FEA / FEM<br>Prototyping & Testing</p></div>
-<div class="skill-card"><h3>Software</h3><p>SolidWorks<br>Creo<br>Inventor<br>AutoCAD<br>NX<br>ANSYS</p></div>
-<div class="skill-card"><h3>Validation / Commissioning</h3><p>FAT · SAT<br>RAMS<br>Documentation & SOPs</p></div>
-<div class="skill-card"><h3>Automation Tools</h3><p>Pneumatics<br>Hydraulics<br>Sensors<br>Actuators<br>Siemens TIA Portal</p></div>
-<div class="skill-card"><h3>Languages</h3><p>English (C2)<br>German (B2)</p></div>
-</div>
+
+<!-- ================================================== -->
+<!-- SKILLS -->
+<!-- ================================================== -->
+<section id="skills">
+  <h2 class="section-title">Skills & Tools</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><h3>Mechanical & Automation</h3><p>Design, mechatronics, DFMA, tolerance analysis, FEA, prototyping</p></div>
+    <div class="skill-card"><h3>Software</h3><p>SolidWorks, Creo, Inventor, AutoCAD, NX, ANSYS</p></div>
+    <div class="skill-card"><h3>Validation</h3><p>FAT, SAT, RAMS, documentation, SOPs</p></div>
+    <div class="skill-card"><h3>Automation</h3><p>Pneumatics, hydraulics, sensors, actuators, Siemens TIA Portal</p></div>
+    <div class="skill-card"><h3>Languages</h3><p>English (C2), German (B2)</p></div>
+  </div>
 </section>
-<section class="section" id="experience">
-<h2>Experience</h2>
-<div class="timeline">
-<div class="timeline-item"><div class="company-logo"></div><h3>Technical Trainer — SRH Hochschule, Berlin (2024–2025)</h3><p>Trained students in automation, sensors, PLCs, actuators, and CAD.</p></div>
-<div class="timeline-item"><div class="company-logo"></div><h3>Mechanical Design Engineer — ENWAY, Berlin (2020–2022)</h3><p>Designed IP65-rated subsystems and enhanced robot cleaning performance.</p></div>
-<div class="timeline-item"><div class="company-logo"></div><h3>Mechanical Design Engineer — Autotechnik, India (2017–2019)</h3><p>Developed automated machines for automotive safety components.</p></div>
-<div class="timeline-item"><div class="company-logo"></div><h3>CAD Engineer — Digimind, Berlin (2021)</h3><p>Created parametric packaging models, optimized laser workflows.</p></div>
-</div>
+
+<!-- ================================================== -->
+<!-- EXPERIENCE (TIMELINE) -->
+<!-- ================================================== -->
+<section id="experience">
+  <h2 class="section-title">Experience</h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="company-logo"></div>
+      <h3>Technical Trainer — SRH Hochschule Berlin</h3>
+      <div class="year">2024 – 2025</div>
+      <p>Trained students in automation, sensors, PLCs, actuators, and CAD.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="company-logo"></div>
+      <h3>Mechanical Design Engineer — ENWAY Berlin</h3>
+      <div class="year">2020 – 2022</div>
+      <p>Designed IP65-rated subsystems for autonomous robots improving cleaning performance.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="company-logo"></div>
+      <h3>Mechanical Design Engineer — Autotechnik India</h3>
+      <div class="year">2017 – 2019</div>
+      <p>Developed automated machines for safetycritical automotive components.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="company-logo"></div>
+      <h3>CAD Engineer — Digimind Berlin</h3>
+      <div class="year">2021</div>
+      <p>Created parametric packaging models and optimized laser workflows.</p>
+    </div>
+
+  </div>
 </section>
-<section class="section" id="projects">
-<h2>Featured Engineering Projects</h2>
-<div class="projects-grid">
-<div class="project-card"><img src="placeholder-project.jpg"><h3>Precision Riveting Machine</h3><p>±25 µm accuracy · 98.5% FPY · <2 min changeover</p></div>
-<div class="project-card"><img src="placeholder-project.jpg"><h3>Autonomous Sweeping Robot</h3><p>+45% cleaning efficiency · ~30% faster assembly</p></div>
-<div class="project-card"><img src="placeholder-project.jpg"><h3>Seat-Belt ELR Assembly Line</h3><p>Cycle 12s → 6s · Operators 12 → 5</p></div>
-<div class="project-card"><img src="placeholder-project.jpg"><h3>FMCG Packaging Optimization</h3><p>–24% laser time</p></div>
-</div>
+
+<!-- ================================================== -->
+<!-- PROJECTS -->
+<!-- ================================================== -->
+<section id="projects">
+  <h2 class="section-title">Featured Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-img"></div>
+      <div class="project-content">
+        <h3>Precision Riveting Machine</h3>
+        <p>±25 μm accuracy · 98.5% FPY · < 2 min changeover</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"></div>
+      <div class="project-content">
+        <h3>Autonomous Sweeping Robot</h3>
+        <p>+45% cleaning efficiency · 30% faster assembly</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"></div>
+      <div class="project-content">
+        <h3>Seat-Belt ELR Line Upgrade</h3>
+        <p>Cycle time 12s → 6s · Team reduced 12 → 5</p>
+      </div>
+    </div>
+
+  </div>
 </section>
-<section class="section" id="education">
-<h2>Education</h2>
-<p><strong>M.Eng. Engineering & Sustainable Technology — Industry 4.0</strong><br>SRH Hochschule Berlin · 2020–2022</p>
-<p><strong>B.Eng. Mechanical Engineering</strong><br>University of Pune · 2013–2017</p>
+
+<!-- ================================================== -->
+<!-- CONTACT -->
+<!-- ================================================== -->
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <p>Email: rajkale@gmail.com</p>
+  <p>Mobile: +49 151 14254563</p>
+  <p>LinkedIn: raj-kale</p>
 </section>
-<section class="section" id="contact">
-<h2>Contact</h2>
-<p>Email: rajkale@gmail.com<br>Mobile: +49 151 14254563<br>LinkedIn: raj-kale</p>
-</section>
-<footer>© 2025 Rushikesh Abhale — Mechanical Design & Automation • Built with care</footer>
+
+<!-- ================================================== -->
+<!-- FOOTER -->
+<!-- ================================================== -->
+<footer>
+  © 2025 Rushikesh Abhale — Mechanical Design & Automation • Built with care
+</footer>
+
 </body>
 </html>
