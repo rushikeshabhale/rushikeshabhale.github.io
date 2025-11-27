@@ -25,6 +25,24 @@ h2{color:#0c2788;margin-bottom:20px}
 .timeline-item::before{content:"";position:absolute;left:-14px;top:4px;width:14px;height:14px;background:#ff4027;border-radius:50%}
 .company-logo{width:90px;height:40px;background:#ccc;border-radius:6px;margin-bottom:8px}
 footer{text-align:center;margin:60px 0;color:#777}
+  /* Improved layout spacing */
+  section { padding: 100px 0; }
+  h2 { margin-bottom: 40px; }
+
+  /* Smooth fade + slide animation */
+  .fade-in { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* Hover highlights */
+  .card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.18); }
+
+  /* Enhanced timeline */
+  .timeline { position: relative; margin: 60px auto; padding-left: 40px; border-left: 4px solid #0c2788; }
+  .timeline-item { margin-bottom: 50px; position: relative; padding-left: 30px; }
+  .timeline-item::before { content:''; position:absolute; left:-12px; top:5px; width:20px; height:20px; background:#ff4027; border-radius:50%; box-shadow:0 0 0 4px #f4f3f9; }
+  .timeline-item h3 { margin:0 0 5px; color:#0c2788; font-size:1.35rem; }
+  .timeline-item .year { font-weight:600; margin-bottom:10px; color:#ff4027; }
+  .timeline-item p { margin:0; color:#0f0c1f; line-height:1.6; }
 </style>
 </head>
 <body>
