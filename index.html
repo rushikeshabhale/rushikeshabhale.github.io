@@ -72,6 +72,50 @@
   .hero-accent{position:absolute;right:6%;top:14%;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle at 30% 20%, rgba(255,204,0,0.12), rgba(255,64,39,0.06) 25%, transparent 40%);filter:blur(28px);pointer-events:none}
 
   /* ===================================================
+     Full-width image (NEW) — full-bleed banners (Type A)
+     - Uses Unsplash images as placeholders (replace later)
+     - Parallax & zoom-on-scroll + overlay + noise
+     =================================================== */
+  .fullwidth-img { width:100%; display:block; margin:48px 0; overflow:hidden; }
+  .fullwidth-img .fw-img-wrap { position:relative; width:100%; height:380px; max-height:60vh; overflow:hidden; }
+  .fullwidth-img .fw-img-wrap img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transform: scale(1);
+    transition: transform 0.9s cubic-bezier(.2,.9,.2,1), filter 0.6s;
+    will-change: transform;
+  }
+  /* soft gradient overlay so text on top remains readable (if you add text later) */
+  .fullwidth-img .fw-overlay {
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(12,39,136,0.18) 0%, rgba(255,64,39,0.06) 30%, rgba(15,12,31,0.03) 100%);
+    pointer-events:none;
+    mix-blend-mode: overlay;
+    opacity:0.9;
+  }
+  /* subtle SVG noise layer for texture */
+  .fullwidth-img .fw-noise {
+    position:absolute; inset:0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n2'><feTurbulence baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n2)' opacity='0.02' /></svg>");
+    opacity:0.9;
+    pointer-events:none;
+    mix-blend-mode: multiply;
+  }
+  .fullwidth-img .fw-img-wrap { border-radius: 10px; }
+  .fullwidth-img[data-parallax="true"] .fw-img-wrap img { will-change: transform; }
+  .fullwidth-img.zoomed .fw-img-wrap img { transform: scale(1.06); filter: contrast(1.02) saturate(1.02); }
+
+  /* responsive height adjustments */
+  @media (max-width:980px) {
+    .fullwidth-img .fw-img-wrap { height:260px; }
+  }
+  @media (max-width:640px) {
+    .fullwidth-img .fw-img-wrap { height:180px; border-radius: 6px; }
+  }
+
+  /* ===================================================
      SECTIONS (modular classes so we can edit small blocks)
      =================================================== */
   section{padding:110px 0}
@@ -186,6 +230,18 @@
     <div class="hero-accent" aria-hidden></div>
   </header>
 
+  <!-- ==========================
+       FULLWIDTH IMAGE — 1 (AFTER HERO)
+       Unsplash: industrial / robotics
+       ========================== -->
+  <section class="fullwidth-img fw-01" data-parallax="true" aria-hidden="true">
+    <div class="fw-img-wrap">
+      <img src="https://source.unsplash.com/1600x900/?industrial,robotics,machinery" alt="Engineering wide visual 1">
+      <div class="fw-overlay"></div>
+      <div class="fw-noise" aria-hidden="true"></div>
+    </div>
+  </section>
+
   <!-- CONTENT -->
   <main>
 
@@ -196,6 +252,18 @@
         <p class="lead reveal">I’m a mechanical engineer who enjoys solving practical problems — the kind that demand clear thinking, smart design choices, and hands-on development.</p>
         <p class="reveal">Whether it’s a precision fixture, an automated station, or a subsystem for an autonomous robot, I like the moment when an idea becomes something real and reliable.</p>
         <p class="reveal">Today, I work across mechanical design, automation, and systems engineering — creating solutions that perform consistently where it matters most: in production.</p>
+      </div>
+    </section>
+
+    <!-- ==========================
+         FULLWIDTH IMAGE — 2 (AFTER ABOUT)
+         Unsplash: abstract / blueprint / CAD
+         ========================== -->
+    <section class="fullwidth-img fw-02" data-parallax="true" aria-hidden="true">
+      <div class="fw-img-wrap">
+        <img src="https://source.unsplash.com/1600x900/?blueprint,CAD,technical,diagram" alt="Engineering wide visual 2">
+        <div class="fw-overlay"></div>
+        <div class="fw-noise" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -232,6 +300,18 @@
       </div>
     </section>
 
+    <!-- ==========================
+         FULLWIDTH IMAGE — 3 (AFTER SKILLS)
+         Unsplash: futuristic / sleek engineering poster
+         ========================== -->
+    <section class="fullwidth-img fw-03" data-parallax="true" aria-hidden="true">
+      <div class="fw-img-wrap">
+        <img src="https://source.unsplash.com/1600x900/?futuristic,metal,technology,design" alt="Engineering wide visual 3">
+        <div class="fw-overlay"></div>
+        <div class="fw-noise" aria-hidden="true"></div>
+      </div>
+    </section>
+
     <!-- PROJECTS -->
     <section id="projects" class="section">
       <div class="section-inner container">
@@ -242,7 +322,7 @@
             <div class="project-img"><img src="https://via.placeholder.com/1200x800.png?text=Precision+Riveting" alt="Precision Riveting"></div>
             <div class="project-body">
               <h4>Precision Riveting Machine</h4>
-              <p>High-accuracy riveting workstation for seat‑belt components. Impact: ±25 µm · 98.5% FPY · &lt;2 min changeover</p>
+              <p>High-accuracy riveting workstation for seat-belt components. Impact: ±25 µm · 98.5% FPY · &lt;2 min changeover</p>
             </div>
           </article>
 
@@ -257,12 +337,24 @@
           <article class="project-card reveal" tabindex="0">
             <div class="project-img"><img src="https://via.placeholder.com/1200x800.png?text=Seat-Belt+ELR" alt="ELR Line"></div>
             <div class="project-body">
-              <h4>Seat‑Belt ELR Assembly Line</h4>
+              <h4>Seat-Belt ELR Assembly Line</h4>
               <p>Line modernization with servo-driven systems. Impact: Cycle 12s → 6s · Operators 12 → 5</p>
             </div>
           </article>
 
         </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+         FULLWIDTH IMAGE — 4 (AFTER EXPERIENCE)
+         Unsplash: factory / assembly / large-scale
+         ========================== -->
+    <section class="fullwidth-img fw-04" data-parallax="true" aria-hidden="true">
+      <div class="fw-img-wrap">
+        <img src="https://source.unsplash.com/1600x900/?factory,assembly,line" alt="Engineering wide visual 4">
+        <div class="fw-overlay"></div>
+        <div class="fw-noise" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -372,6 +464,63 @@
       });
     },{root:null,threshold:0.12});
     timelineItems.forEach(i=>tObserver.observe(i));
+
+    /* ----------------------------
+       Fullwidth images: parallax & zoom-on-scroll
+       - selects all .fullwidth-img and animates them
+       ---------------------------- */
+    (function fullwidthParallax(){
+      const fw = Array.from(document.querySelectorAll('.fullwidth-img'));
+      if(!fw.length) return;
+
+      // mark for reveal (re-use the same reveal observer)
+      fw.forEach((el) => {
+        el.classList.add('reveal');
+      });
+
+      // Observe reveal and add zoom class when visible
+      const fwObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('revealed', 'zoomed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { root: null, threshold: 0.2 });
+      fw.forEach(el => fwObserver.observe(el));
+
+      // For parallax movement: track the <img> inside each fw-img-wrap
+      const parallaxImgs = fw.map(el => el.querySelector('.fw-img-wrap img')).filter(Boolean);
+
+      if(!parallaxImgs.length) return;
+
+      // parallax update function (uses requestAnimationFrame)
+      let ticking = false;
+      function updateParallax(){
+        parallaxImgs.forEach(img => {
+          const rect = img.getBoundingClientRect();
+          // normalized value where 0.0 = top off-screen, 1.0 = fully visible near top
+          const pct = 1 - (rect.top / window.innerHeight);
+          // clamp
+          const clamped = Math.max(-0.5, Math.min(1.2, pct));
+          const translateY = (clamped - 0.5) * 20; // moves between -10px and +10px
+          const scale = 1 + (clamped * 0.015); // small scale
+          img.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
+        });
+        ticking = false;
+      }
+
+      function onScrollParallax(){
+        if(ticking) return;
+        ticking = true;
+        requestAnimationFrame(updateParallax);
+      }
+
+      // initial call
+      updateParallax();
+      window.addEventListener('scroll', throttle(onScrollParallax, 8), { passive:true });
+      window.addEventListener('resize', () => requestAnimationFrame(updateParallax));
+    })();
 
     /* ----------------------------
        Project image subtle parallax on pointer move
