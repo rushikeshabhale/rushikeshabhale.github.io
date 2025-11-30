@@ -888,6 +888,35 @@ modal.addEventListener("click", e => {
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") modal.classList.remove("active");
 });
+/* ----------------------------
+   Project Modal Logic
+   ---------------------------- */
+
+const modal = document.getElementById("projectModal");
+const modalBody = document.getElementById("modalBody");
+const modalClose = document.getElementById("modalClose");
+
+document.querySelectorAll(".project-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const title = card.querySelector("h4").innerText;
+    const desc = card.querySelector("p").innerText;
+    const img = card.querySelector("img").src;
+
+    modalBody.innerHTML = `
+      <h2>${title}</h2>
+      <img src="${img}" alt="${title}" style="width:100%; border-radius:12px; margin:12px 0;">
+      <p>${desc}</p>
+      <p style="margin-top:20px; opacity:0.7;">Download the full portfolio to explore more projects.</p>
+    `;
+
+    modal.classList.add("active");
+  });
+});
+
+modalClose.addEventListener("click", () => modal.classList.remove("active"));
+modal.addEventListener("click", e => {
+  if (e.target === modal) modal.classList.remove("active");
+});
 
   </script>
 <!-- =========================
@@ -904,6 +933,12 @@ document.addEventListener("keydown", e => {
       <p id="modalDescription"></p>
     </div>
 
+  </div>
+</div>
+<div class="modal-overlay" id="projectModal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div id="modalBody"></div>
   </div>
 </div>
 
