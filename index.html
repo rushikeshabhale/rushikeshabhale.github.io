@@ -827,74 +827,11 @@
 
 
   })();
-  /* ======================================
-   PROJECT MODAL LOGIC
-====================================== */
 
-// All project cards
-const projectCards = document.querySelectorAll(".project-card");
-
-// Modal elements
-const modal = document.getElementById("projectModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalImg = document.getElementById("modalImage");
-const modalDesc = document.getElementById("modalDescription");
-const modalClose = document.querySelector(".modal-close");
-
-// Sample project data (replace with real later)
-const projectData = {
-  riveting: {
-    title: "Precision Riveting Machine",
-    img: "images/riveting-placeholder.jpg",
-    desc: "High-accuracy riveting workstation for seat-belt components with ±25 µm precision and 98.5% FPY."
-  },
-  sweeping: {
-    title: "Autonomous Sweeping Robot",
-    img: "images/robot-placeholder.jpg",
-    desc: "Designed mechanical subsystems, optimized brush performance, and improved assembly processes."
-  },
-  seatbelt: {
-    title: "Seat-Belt ELR Assembly Line",
-    img: "images/seatbelt-placeholder.jpg",
-    desc: "Semi-automated line upgrade with servo-driven systems achieving cycle time reduction from 12s to 6s."
-  }
-};
-
-// Attach click events
-projectCards.forEach(card => {
-  card.addEventListener("click", () => {
-    const id = card.dataset.project; // example: data-project="riveting"
-    const p = projectData[id];
-
-    modalTitle.textContent = p.title;
-    modalImg.src = p.img;
-    modalDesc.textContent = p.desc;
-
-    modal.classList.add("active");
-  });
-});
-
-// Close modal
-modalClose.addEventListener("click", () => {
-  modal.classList.remove("active");
-});
-
-// Close if clicking outside modal
-modal.addEventListener("click", e => {
-  if (e.target === modal) modal.classList.remove("active");
-});
-
-// ESC key support
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") modal.classList.remove("active");
-});
 /* ----------------------------
    Project Modal Logic
    ---------------------------- */
 
-const modal = document.getElementById("projectModal");
-const modalBody = document.getElementById("modalBody");
-const modalClose = document.getElementById("modalClose");
 
 document.querySelectorAll(".project-card").forEach(card => {
   card.addEventListener("click", () => {
@@ -923,19 +860,6 @@ modal.addEventListener("click", e => {
      PROJECT DETAILS MODAL
 ========================= -->
 <div id="projectModal" class="modal-overlay">
-  <div class="modal-content">
-    
-    <button class="modal-close">✕</button>
-
-    <div class="modal-body">
-      <h2 id="modalTitle"></h2>
-      <img id="modalImage" alt="" />
-      <p id="modalDescription"></p>
-    </div>
-
-  </div>
-</div>
-<div class="modal-overlay" id="projectModal">
   <div class="modal-content">
     <button class="modal-close" id="modalClose">&times;</button>
     <div id="modalBody"></div>
