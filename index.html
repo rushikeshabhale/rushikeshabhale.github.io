@@ -95,18 +95,32 @@
 /* ===================================================
     METRICS
 =================================================== */
-#metrics .metric {
-  transition: transform 0.3s ease, opacity 0.3s ease;
+#metrics .metrics-grid {
+  display: flex;
+  justify-content: space-between; /* evenly distributes the metrics */
+  flex-wrap: nowrap;
+  align-items: flex-start;       /* aligns top of numbers */
+  gap: 60px;
 }
 
-@media (max-width:640px) {
-  #metrics .metrics-grid {
-    flex-direction:column;
-    gap:40px;
-  }
-  #metrics .metric-number {
-    font-size:2.4rem;
-  }
+#metrics .metric {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 1;           /* makes all metrics equal width */
+  min-width: 0;      /* prevents wrapping */
+}
+
+#metrics .metric-number {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #0c2788;
+}
+
+#metrics .metric-label {
+  font-size: 1rem;
+  color: #444; /* lighter blue shade for description */
+  margin-top: 6px;
 }
 
 
@@ -272,28 +286,25 @@
 
 
   <!-- METRICS -->
-<section id="metrics" class="section" style="background:#f4f3f9; color:#f4f3f9; padding:100px 0;">
+<section id="metrics" class="section" style="background:#f4f3f9; padding:100px 0;">
   <div class="section-inner container" style="text-align:center;">
-    <div class="metrics-grid" style="display:flex; justify-content:space-around; flex-wrap:nowrap; gap:60px;">
-      
-      <div class="metric reveal" style="min-width:160px;">
-        <div class="metric-number" style="font-size:3.2rem;font-weight:800;color:#0c2788;">5+</div>
-        <div class="metric-label" style="margin-top:6px;font-size:1rem;color:#5D54CE;">years in mechanical design and automation</div>
+    <div class="metrics-grid reveal">
+      <div class="metric">
+        <div class="metric-number">5+</div>
+        <div class="metric-label">years in mechanical design and automation</div>
       </div>
-      
-      <div class="metric reveal" style="min-width:160px;">
-        <div class="metric-number" style="font-size:3.2rem;font-weight:800;color:#0c2788;">250+</div>
-        <div class="metric-label" style="margin-top:6px;font-size:1rem;color:#5D54CE;">engineers trained in automation and CAD</div>
+      <div class="metric">
+        <div class="metric-number">250+</div>
+        <div class="metric-label">engineers trained in automation and CAD</div>
       </div>
-      
-      <div class="metric reveal" style="min-width:160px;">
-        <div class="metric-number" style="font-size:3.2rem;font-weight:800;color:#0c2788;">10+</div>
-        <div class="metric-label" style="margin-top:6px;font-size:1rem;color:#5D54CE;">projects across automation, robotics, automotive and FMCG industry</div>
+      <div class="metric">
+        <div class="metric-number">10+</div>
+        <div class="metric-label">projects across automation, robotics, automotive and FMCG industry</div>
       </div>
-
     </div>
   </div>
 </section>
+
 
   
   <!-- ==========================
