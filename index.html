@@ -782,6 +782,11 @@
     /* ----------------------------
        Project image subtle parallax on pointer move
        ---------------------------- */
+   
+    const modal = document.getElementById("projectModal");
+const modalClose = document.getElementById("modalClose");
+const modalBody = document.getElementById("modalBody");
+
     document.querySelectorAll('.project-card').forEach(card=>{
       card.addEventListener('pointermove', e=>{
         const img = card.querySelector('img'); if(!img) return;
