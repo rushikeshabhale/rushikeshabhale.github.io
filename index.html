@@ -91,6 +91,26 @@
   /* small floating accent */
   .hero-accent{position:absolute;right:6%;top:14%;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle at 30% 20%, rgba(255,204,0,0.12), rgba(255,64,39,0.06) 25%, transparent 40%);filter:blur(28px);pointer-events:none}
 
+
+/* ===================================================
+    METRICS
+=================================================== */
+#metrics .metric {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media (max-width:640px) {
+  #metrics .metrics-grid {
+    flex-direction:column;
+    gap:40px;
+  }
+  #metrics .metric-number {
+    font-size:2.4rem;
+  }
+}
+
+
+    
   /* ===================================================
      Full-width image (NEW) — full-bleed banners (Type A)
      - Uses Unsplash images as placeholders (replace later)
@@ -250,6 +270,32 @@
     <div class="hero-accent" aria-hidden></div>
   </header>
 
+
+  <!-- METRICS -->
+<section id="metrics" class="section" style="background:#0c2788; color:#fff; padding:100px 0;">
+  <div class="section-inner container" style="text-align:center;">
+    <div class="metrics-grid" style="display:flex;flex-wrap:wrap;justify-content:center;gap:60px;">
+      
+      <div class="metric reveal" style="min-width:160px;">
+        <div class="metric-number" style="font-size:3.2rem;font-weight:800;color:#ffcc00;">5+</div>
+        <div class="metric-label" style="margin-top:6px;font-size:1rem;color:rgba(255,255,255,0.7);">years in mechanical design and automation</div>
+      </div>
+      
+      <div class="metric reveal" style="min-width:160px;">
+        <div class="metric-number" style="font-size:3.2rem;font-weight:800;color:#ffcc00;">250+</div>
+        <div class="metric-label" style="margin-top:6px;font-size:1rem;color:rgba(255,255,255,0.7);">engineers trained in automation and CAD</div>
+      </div>
+      
+      <div class="metric reveal" style="min-width:160px;">
+        <div class="metric-number" style="font-size:3.2rem;font-weight:800;color:#ffcc00;">10+</div>
+        <div class="metric-label" style="margin-top:6px;font-size:1rem;color:rgba(255,255,255,0.7);">projects across automation, robotics, automotive and FMCG industry</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  
   <!-- ==========================
        FULLWIDTH IMAGE — 1 (AFTER HERO)
        Unsplash: industrial / robotics
