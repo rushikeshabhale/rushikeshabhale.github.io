@@ -838,38 +838,47 @@
       </div>
     </section>
     
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="section-inner container">
-        <h2 class="section-title">Let's Contact</h2>
-        <p class="lead">Whether it’s a project, collaboration, or just to say hi, I’d love to hear from you.</p>
- <p class="lead reveal">Whether it’s a project, collaboration, or just to say hi, I’d love to hear from you.</p>
+<section id="contact" class="section">
+  <div class="section-inner container">
+    <h2 class="section-title reveal">Let's Connect</h2>
+    <p class="lead reveal">Whether it’s a project, collaboration, or just to say hi, I’d love to hear from you.</p>
 
-    <div class="contact-columns" style="display:flex; gap:48px; flex-wrap:wrap; margin-top:32px;">
+    <div class="contact-columns reveal" style="display:flex; gap:48px; flex-wrap:wrap; margin-top:32px;">
       
-      <!-- Column 1: Info -->
-      <div class="contact-info" style="flex:1; min-width:280px;">
-        <h4>Address</h4>
-        <p>Berlin, Germany</p>
+<!-- Column 1: Contact Info -->
+<div class="contact-info" style="flex:1; min-width:280px; display:flex; flex-direction:column; gap:24px;">
 
-        <h4>Contacts</h4>
-        <p>Email: <a href="mailto:rushikeshabhale95@gmail.com">rushikeshabhale95@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/rushikesh-abhale" target="_blank" rel="noopener">rushikesh-abhale</a></p>
-      </div>
+  <div style="line-height:1.6;">
+    <h4 style="margin-bottom:6px; color:var(--nav-bg);">Address</h4>
+    <p style="margin:0;">Berlin, Germany</p>
+  </div>
 
-      <!-- Column 2: Form -->
+  <div style="line-height:1.6;">
+    <h4 style="margin-bottom:6px; color:var(--nav-bg);">Contacts</h4>
+    <p style="margin:0;">Email: <a href="mailto:rushikeshabhale95@gmail.com" style="color:var(--accent); text-decoration:underline;">rushikeshabhale95@gmail.com</a></p>
+  </div>
+
+  <div style="line-height:1.6;">
+    <h4 style="margin-bottom:6px; color:var(--nav-bg);">LinkedIn</h4>
+    <p style="margin:0;"><a href="https://www.linkedin.com/in/rushikesh-abhale" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline;">rushikesh-abhale</a></p>
+  </div>
+
+</div>
+
+
+      <!-- Column 2: Contact Form -->
       <div class="contact-form" style="flex:1; min-width:280px;">
-        <form>
+        <form action="https://formspree.io/f/yourFormID" method="POST" style="display:flex; flex-direction:column; gap:12px;">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your Name" required style="width:100%; padding:10px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;">
+          <input type="text" id="name" name="name" placeholder="Your Name" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; font-family:Inter;">
 
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Your Email" required style="width:100%; padding:10px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;">
+          <input type="email" id="email" name="email" placeholder="Your Email" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; font-family:Inter;">
 
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Your Message" required style="width:100%; padding:10px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;"></textarea>
+          <textarea id="message" name="message" rows="5" placeholder="Your Message" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; font-family:Inter;"></textarea>
 
-          <button type="submit" class="btn-primary">Send Message</button>
+          <button type="submit" class="btn-primary" style="margin-top:8px;">Send Message</button>
         </form>
       </div>
 
