@@ -324,34 +324,57 @@
   /* ===================================================
      TIMELINE (animated with reveal on scroll)
      =================================================== */
-  .timeline{position:relative;margin-left:30px;padding-left:40px;border-left:4px solid var(--nav-bg)}
-  .timeline-item{position:relative;margin-bottom:64px;opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
-  .timeline-item.in-view{opacity:1;transform:none}
-  .timeline-item::before{content:'';position:absolute;left:-58px;top:0;width:72px;height:72px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(2,6,23,0.06)}
-  .timeline-item .dot{position:absolute;left:-44px;top:14px;width:18px;height:18px;background:var(--accent);border-radius:50%;box-shadow:0 6px 18px rgba(255,64,39,0.18)}
-  .timeline-item h4{color:var(--nav-bg);font-size:1.25rem;margin-bottom:6px}
-  .timeline-item .meta{color:var(--accent);font-weight:700;margin-bottom:8px}
-  .company-logo {
-    width: 60px;                /* consistent size */
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff;           /* sits well inside the white box */
-    border-radius: 10px;
-    overflow: hidden;           /* prevents overflow */
-    margin-bottom: 12px;
-    position: relative;
-    z-index: 3;                 /* ensures logo stays ABOVE the white square */
-  }
-  
-  .company-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;        /* keeps aspect ratio */
-    object-position: center;
-    filter: none;               /* remove accidental grayscale */
-  }
+/* TIMELINE background square (white box) */
+.timeline-item {
+  position: relative;           /* keep this so ::before is positioned relative to item */
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+/* white square behind the logo */
+.timeline-item::before{
+  content: '';
+  position: absolute;
+  left: -58px;
+  top: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  background: #fff;
+  display: block;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.06);
+  z-index: 1; /* lower than logo */
+}
+
+/* company logo box — absolutely placed on top of the white square */
+.company-logo {
+  position: absolute;     /* remove from flow and place exactly over the white box */
+  left: -58px;
+  top: 0;
+  width: 72px;            /* match ::before size for perfect centering */
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent; /* white square is already the background */
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 2;             /* above the white square */
+}
+
+/* image fit: keep aspect ratio, avoid overflow, and prevent text shifting */
+.company-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  filter: none;
+}
 
 
   /* ===================================================
