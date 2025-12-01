@@ -324,56 +324,95 @@
   /* ===================================================
      TIMELINE (animated with reveal on scroll)
      =================================================== */
-/* TIMELINE background square (white box) */
+/* ============================
+   TIMELINE (dark-blue theme)
+============================ */
+
+/* vertical line */
+.timeline {
+  position: relative;
+  margin-left: 30px;
+  padding-left: 60px;
+  border-left: 3px solid rgba(12,39,136,0.25); /* subtle navy */
+}
+
+/* each item */
 .timeline-item {
-  position: relative;           /* keep this so ::before is positioned relative to item */
-  margin-bottom: 64px;
+  position: relative;
+  margin-bottom: 80px;
   opacity: 0;
   transform: translateY(28px);
   transition: opacity .8s ease, transform .8s ease;
 }
 
-/* white square behind the logo */
-.timeline-item::before{
-  content: '';
-  position: absolute;
-  left: -58px;
-  top: 0;
-  width: 72px;
-  height: 72px;
-  border-radius: 12px;
-  background: #fff;
-  display: block;
-  box-shadow: 0 8px 24px rgba(2,6,23,0.06);
-  z-index: 1; /* lower than logo */
+/* glowing navy square (behind logo) */
+.timeline-item::before {
+  content:"";
+  position:absolute;
+  left:-78px;              /* adjusted for bigger logo */
+  top:0;
+  width:92px;              /* bigger & cleaner */
+  height:92px;
+  border-radius:16px;
+  background: linear-gradient(
+    135deg,
+    #0c2788 0%,
+    #2644c5 100%
+  );
+  box-shadow:0 12px 32px rgba(12,39,136,0.25);
+  z-index: 1;              /* BEHIND logo */
 }
 
-/* company logo box — absolutely placed on top of the white square */
+/* logo container */
 .company-logo {
-  position: absolute;     /* remove from flow and place exactly over the white box */
-  left: -58px;
-  top: 0;
-  width: 72px;            /* match ::before size for perfect centering */
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent; /* white square is already the background */
-  border-radius: 10px;
-  overflow: hidden;
-  z-index: 2;             /* above the white square */
+  position:absolute;
+  left:-78px;
+  top:0;
+  width:92px;
+  height:92px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border-radius:16px;
+  overflow:hidden;
+  z-index: 3;              /* ABOVE white/navy square */
 }
 
-/* image fit: keep aspect ratio, avoid overflow, and prevent text shifting */
+/* logo image */
 .company-logo img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-  filter: none;
+  width:70%;
+  height:70%;
+  object-fit:contain;
+  display:block;
+}
+
+/* NEW modern dot (blue glow) */
+.timeline-item .dot {
+  position:absolute;
+  left:-34px;  
+  top:36px;   
+  width:18px;
+  height:18px;
+  background:#4e63d9;
+  border-radius:50%;
+  box-shadow:
+    0 0 12px rgba(78,99,217,0.8),
+    0 0 24px rgba(78,99,217,0.5);
+  z-index:4;
+}
+
+/* text */
+.timeline-item h4 {
+  color:#0c2788;
+  font-size:1.4rem;
+  margin-bottom:6px;
+}
+
+.timeline-item .meta {
+  color:#4e63d9;
+  font-weight:700;
+  margin-bottom:10px;
 }
 
 
