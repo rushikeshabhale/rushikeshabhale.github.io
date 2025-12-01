@@ -327,141 +327,114 @@
    PREMIUM EXPERIENCE TIMELINE (BLUE + PARALLAX)
 ================================================ */
 
-/* container */
+
+
 .timeline-premium {
   position: relative;
-  padding-left: 80px;
-  padding-top: 20px;
+  padding-left: 60px;
+  padding-top: 40px;
 }
 
-/* animated gradient vertical line */
+/* Gradient line */
 .timeline-premium::before {
   content: "";
   position: absolute;
-  left: 28px;
+  left: 20px;
   top: 0;
   width: 6px;
   height: 100%;
   border-radius: 6px;
-  background: linear-gradient(
-    180deg,
-    #4d68ff,
-    #0c2788,
-    #4d68ff
-  );
+  background: linear-gradient(180deg,#4d68ff,#0c2788,#4d68ff);
   background-size: 1px 200%;
   animation: lineFlow 6s linear infinite;
-  box-shadow: 0 0 18px rgba(77,104,255,0.45);
+  box-shadow:0 0 18px rgba(77,104,255,0.45);
 }
 
+/* Animation */
 @keyframes lineFlow {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 0% 200%; }
+  0% {background-position:0% 0%;}
+  100% {background-position:0% 200%;}
 }
 
-/* each row */
+/* Full row */
 .timeline-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  margin-bottom: 80px;
   position: relative;
+  padding-left: 30px;
+  margin-bottom: 80px;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity .8s ease, transform .8s ease;
 }
-
 .timeline-row.in-view {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* floating year badge */
+/* Year ABOVE the entry */
 .timeline-year {
-  position: absolute;
-  left: -80px;
-  top: 8px;
-  padding: 4px 12px;
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 4px 10px;
   background: #0c2788;
   color: #fff;
-  font-size: 0.85rem;
   font-weight: 700;
+  font-size: 0.85rem;
   border-radius: 6px;
   box-shadow: 0 4px 14px rgba(12,39,136,0.35);
-  transform: translateX(-10px);
-  opacity: 0;
-  transition: all .8s ease .2s;
 }
 
-.timeline-row.in-view .timeline-year {
-  transform: translateX(0);
-  opacity: 1;
+/* LOGO + CONTENT in one row */
+.timeline-entry {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
-/* premium logo block */
+/* Logo container */
 .timeline-logo {
   width: 90px;
   height: 90px;
-  border-radius: 20px;
-  background: linear-gradient(
-    135deg,
-    #0c2788,
-    #3b57d6
-  );
+  border-radius: 20px; /* Smooth corners */
+  background: linear-gradient(135deg,#0c2788,#3b57d6);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   box-shadow:
     0 14px 28px rgba(12,39,136,0.25),
     inset 0 0 12px rgba(255,255,255,0.08);
   overflow: hidden;
-  position: relative;
-  z-index: 5;
-  transform: translateY(12px);
-  transition: transform .6s ease;
+  flex-shrink: 0;
 }
 
-/* parallax hover effect */
-.timeline-row:hover .timeline-logo {
-  transform: translateY(0) scale(1.03);
-}
-
+/* Logo image — perfectly contained */
 .timeline-logo img {
-  width: 70%;
-  height: 70%;
+  width: 78%;
+  height: 78%;
   object-fit: contain;
-  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.25));
+  border-radius: 14px; /* crop corners so it matches block */
 }
 
-/* text content */
+/* Text content */
 .timeline-content h4 {
   margin-bottom: 6px;
-  font-size: 1.25rem;
+  font-size: 1.28rem;
   color: #0c2788;
 }
-
 .timeline-content p {
-  color: #333;
-  line-height: 1.5;
+  color: #2f2f2f;
+  line-height: 1.55;
 }
 
-/* responsive */
-@media(max-width:768px) {
-  .timeline-premium {
-    padding-left: 50px;
-  }
-  .timeline-premium::before {
-    left: 14px;
+/* Responsive */
+@media(max-width:700px){
+  .timeline-entry {
+    flex-direction: column;
+    align-items: flex-start;
   }
   .timeline-logo {
-    width: 70px;
-    height: 70px;
-  }
-  .timeline-year {
-    left: -60px;
+    width:70px; height:70px;
   }
 }
-
 
 
   /* ===================================================
@@ -756,40 +729,48 @@
       <!-- ITEM -->
       <div class="timeline-row">
         <div class="timeline-year">2024 – 2025</div>
+        <div class="timeline-entry">
         <div class="timeline-logo"><img src="l2.jpg" alt="SRH"></div>
         <div class="timeline-content">
           <h4>Technical Trainer — SRH Hochschule Berlin</h4>
           <p>Trained students in automation, sensors, PLCs, actuators, and CAD, preparing them for industrial roles.</p>
         </div>
+        </div>
       </div>
-
+        
       <!-- ITEM -->
       <div class="timeline-row">
         <div class="timeline-year">2020 – 2022</div>
+        <div class="timeline-entry">
         <div class="timeline-logo"><img src="l3.jpg"></div>
         <div class="timeline-content">
           <h4>Mechanical Design Engineer — ENWAY, Berlin</h4>
           <p>Designed IP65-rated subsystems and improved cleaning performance for autonomous robots.</p>
+        </div>
         </div>
       </div>
 
       <!-- ITEM -->
       <div class="timeline-row">
         <div class="timeline-year">2017 – 2019</div>
+        <div class="timeline-entry">
         <div class="timeline-logo"><img src="l1.png"></div>
         <div class="timeline-content">
           <h4>Mechanical Design Engineer — Autotechnik, India</h4>
           <p>Developed automated machines for automotive safety components and commissioning support.</p>
+        </div>
         </div>
       </div>
 
       <!-- ITEM -->
       <div class="timeline-row">
         <div class="timeline-year">2021</div>
+        <div class="timeline-entry">
         <div class="timeline-logo"><img src="l4.jpg"></div>
         <div class="timeline-content">
           <h4>CAD Engineer — Digimind, Berlin</h4>
           <p>Created parametric packaging models and optimized laser-cutting workflows.</p>
+        </div>
         </div>
       </div>
 
