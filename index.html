@@ -321,99 +321,147 @@
   line-height: 1.6;
   color: #444;
 }
-  /* ===================================================
-     TIMELINE (animated with reveal on scroll)
-     =================================================== */
-/* ============================
-   TIMELINE (dark-blue theme)
-============================ */
 
-/* vertical line */
-.timeline {
+    
+/* ===============================================
+   PREMIUM EXPERIENCE TIMELINE (BLUE + PARALLAX)
+================================================ */
+
+/* container */
+.timeline-premium {
   position: relative;
-  margin-left: 30px;
-  padding-left: 60px;
-  border-left: 3px solid rgba(12,39,136,0.25); /* subtle navy */
+  padding-left: 80px;
+  padding-top: 20px;
 }
 
-/* each item */
-.timeline-item {
-  position: relative;
+/* animated gradient vertical line */
+.timeline-premium::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(
+    180deg,
+    #4d68ff,
+    #0c2788,
+    #4d68ff
+  );
+  background-size: 1px 200%;
+  animation: lineFlow 6s linear infinite;
+  box-shadow: 0 0 18px rgba(77,104,255,0.45);
+}
+
+@keyframes lineFlow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 200%; }
+}
+
+/* each row */
+.timeline-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
   margin-bottom: 80px;
+  position: relative;
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(30px);
   transition: opacity .8s ease, transform .8s ease;
 }
 
-/* glowing navy square (behind logo) */
-.timeline-item::before {
-  content:"";
-  position:absolute;
-  left:-78px;              /* adjusted for bigger logo */
-  top:0;
-  width:92px;              /* bigger & cleaner */
-  height:92px;
-  border-radius:16px;
+.timeline-row.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* floating year badge */
+.timeline-year {
+  position: absolute;
+  left: -80px;
+  top: 8px;
+  padding: 4px 12px;
+  background: #0c2788;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(12,39,136,0.35);
+  transform: translateX(-10px);
+  opacity: 0;
+  transition: all .8s ease .2s;
+}
+
+.timeline-row.in-view .timeline-year {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* premium logo block */
+.timeline-logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 20px;
   background: linear-gradient(
     135deg,
-    #0c2788 0%,
-    #2644c5 100%
+    #0c2788,
+    #3b57d6
   );
-  box-shadow:0 12px 32px rgba(12,39,136,0.25);
-  z-index: 1;              /* BEHIND logo */
-}
-
-/* logo container */
-.company-logo {
-  position:absolute;
-  left:-78px;
-  top:0;
-  width:92px;
-  height:92px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:transparent;
-  border-radius:16px;
-  overflow:hidden;
-  z-index: 3;              /* ABOVE white/navy square */
-}
-
-/* logo image */
-.company-logo img {
-  width:70%;
-  height:70%;
-  object-fit:contain;
-  display:block;
-}
-
-/* NEW modern dot (blue glow) */
-.timeline-item .dot {
-  position:absolute;
-  left:-34px;  
-  top:36px;   
-  width:18px;
-  height:18px;
-  background:#4e63d9;
-  border-radius:50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow:
-    0 0 12px rgba(78,99,217,0.8),
-    0 0 24px rgba(78,99,217,0.5);
-  z-index:4;
+    0 14px 28px rgba(12,39,136,0.25),
+    inset 0 0 12px rgba(255,255,255,0.08);
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+  transform: translateY(12px);
+  transition: transform .6s ease;
 }
 
-/* text */
-.timeline-item h4 {
-  color:#0c2788;
-  font-size:1.4rem;
-  margin-bottom:6px;
+/* parallax hover effect */
+.timeline-row:hover .timeline-logo {
+  transform: translateY(0) scale(1.03);
 }
 
-.timeline-item .meta {
-  color:#4e63d9;
-  font-weight:700;
-  margin-bottom:10px;
+.timeline-logo img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.25));
 }
+
+/* text content */
+.timeline-content h4 {
+  margin-bottom: 6px;
+  font-size: 1.25rem;
+  color: #0c2788;
+}
+
+.timeline-content p {
+  color: #333;
+  line-height: 1.5;
+}
+
+/* responsive */
+@media(max-width:768px) {
+  .timeline-premium {
+    padding-left: 50px;
+  }
+  .timeline-premium::before {
+    left: 14px;
+  }
+  .timeline-logo {
+    width: 70px;
+    height: 70px;
+  }
+  .timeline-year {
+    left: -60px;
+  }
+}
+
 
 
   /* ===================================================
@@ -699,46 +747,56 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" class="section">
-      <div class="section-inner container">
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline">
+<section id="experience" class="section">
+  <div class="section-inner container">
+    <h2 class="section-title">Experience</h2>
 
-          <div class="timeline-item">
-            <div class="company-logo"><img src="l2.jpg" alt="SRH"></div>
-            <h4>Technical Trainer — SRH Hochschule Berlin</h4>
-            <div class="meta">2024 – 2025</div>
-            <p>Trained students in automation, sensors, PLCs, actuators, and CAD, preparing them for industrial roles.</p>
-            <div class="dot"></div>
-          </div>
+    <div class="timeline-premium">
 
-          <div class="timeline-item">
-            <div class="company-logo"><img src="l3.jpg"></div>
-            <h4>Mechanical Design Engineer — ENWAY, Berlin</h4>
-            <div class="meta">2020 – 2022</div>
-            <p>Designed IP65-rated subsystems and improved cleaning performance for autonomous robots.</p>
-            <div class="dot"></div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="company-logo"><img src="l1.png" alt="Autotechnik"></div>
-            <h4>Mechanical Design Engineer — Autotechnik, India</h4>
-            <div class="meta">2017 – 2019</div>
-            <p>Developed automated machines for automotive safety components and supported commissioning.</p>
-            <div class="dot"></div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="company-logo"><img src="l4.jpg"></div>
-            <h4>CAD Engineer — Digimind, Berlin</h4>
-            <div class="meta">2021</div>
-            <p>Created parametric packaging models and optimized laser-cutting workflows.</p>
-            <div class="dot"></div>
-          </div>
-
+      <!-- ITEM -->
+      <div class="timeline-row">
+        <div class="timeline-year">2024 – 2025</div>
+        <div class="timeline-logo"><img src="l2.jpg" alt="SRH"></div>
+        <div class="timeline-content">
+          <h4>Technical Trainer — SRH Hochschule Berlin</h4>
+          <p>Trained students in automation, sensors, PLCs, actuators, and CAD, preparing them for industrial roles.</p>
         </div>
       </div>
-    </section>
+
+      <!-- ITEM -->
+      <div class="timeline-row">
+        <div class="timeline-year">2020 – 2022</div>
+        <div class="timeline-logo"><img src="l3.jpg"></div>
+        <div class="timeline-content">
+          <h4>Mechanical Design Engineer — ENWAY, Berlin</h4>
+          <p>Designed IP65-rated subsystems and improved cleaning performance for autonomous robots.</p>
+        </div>
+      </div>
+
+      <!-- ITEM -->
+      <div class="timeline-row">
+        <div class="timeline-year">2017 – 2019</div>
+        <div class="timeline-logo"><img src="l1.png"></div>
+        <div class="timeline-content">
+          <h4>Mechanical Design Engineer — Autotechnik, India</h4>
+          <p>Developed automated machines for automotive safety components and commissioning support.</p>
+        </div>
+      </div>
+
+      <!-- ITEM -->
+      <div class="timeline-row">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-logo"><img src="l4.jpg"></div>
+        <div class="timeline-content">
+          <h4>CAD Engineer — Digimind, Berlin</h4>
+          <p>Created parametric packaging models and optimized laser-cutting workflows.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- CONTACT -->
     <section id="contact" class="section">
@@ -939,6 +997,17 @@ document.addEventListener('DOMContentLoaded', () => {
     modalClose.addEventListener("click", () => modal.classList.remove("active"));
     modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("active"); });
   }
+/* PREMIUM TIMELINE REVEAL */
+const premiumRows = document.querySelectorAll('.timeline-row');
+const premiumObserver = new IntersectionObserver((entries)=> {
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('in-view');
+    }
+  });
+},{ threshold:0.2 });
+
+premiumRows.forEach(row => premiumObserver.observe(row));
 
 });
 </script>
