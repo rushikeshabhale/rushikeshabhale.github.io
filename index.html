@@ -837,43 +837,45 @@
         <div class="fw-noise" aria-hidden="true"></div>
       </div>
     </section>
-    
-<section id="contact" class="section">
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="section">
   <div class="section-inner container">
     <h2 class="section-title reveal">Let's Connect</h2>
     <p class="lead reveal">Whether it’s a project, collaboration, or just to say hi, I’d love to hear from you.</p>
 
     <div class="contact-columns reveal" style="display:flex; gap:48px; flex-wrap:wrap; margin-top:32px;">
-      
-<!-- Column 1: Contact Info -->
-<div class="contact-info" style="flex:1; min-width:280px; display:flex; flex-direction:column; gap:24px;">
 
-  <div style="line-height:1.6;">
-    <h4 style="margin-bottom:6px; color:var(--nav-bg);">Address</h4>
-    <p style="margin:0;">Berlin, Germany</p>
-  </div>
-
-<div style="line-height:1.6;">
-  <h4 style="margin-bottom:6px; color:var(--nav-bg);">Contacts</h4>
-  <p style="margin:0;">
-    Email: 
-  <a href="mailto:rushikeshabhale95@gmail.com" style="color:var(--accent); text-decoration:underline;">
-    rushikeshabhale95@gmail.com
-  </a>
-</p>
-</div>
-
-  <div style="line-height:1.6;">
-    <h4 style="margin-bottom:6px; color:var(--nav-bg);">LinkedIn</h4>
-    <p style="margin:0;"><a href="https://www.linkedin.com/in/rushikesh-abhale" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline;">rushikesh-abhale</a></p>
-  </div>
-
-</div>
-
+      <!-- Column 1: Contact Info -->
+      <div class="contact-info" style="flex:1; min-width:280px; display:flex; flex-direction:column; gap:24px;">
+        <div style="line-height:1.6;">
+          <h4 style="margin-bottom:6px; color:var(--nav-bg);">Address</h4>
+          <p style="margin:0;">Berlin, Germany</p>
+        </div>
+        <div style="line-height:1.6;">
+          <h4 style="margin-bottom:6px; color:var(--nav-bg);">Contacts</h4>
+          <p style="margin:0;">
+            Email: 
+            <a href="mailto:rushikeshabhale95@gmail.com" style="color:var(--accent); text-decoration:underline;">
+              rushikeshabhale95@gmail.com
+            </a>
+          </p>
+        </div>
+        <div style="line-height:1.6;">
+          <h4 style="margin-bottom:6px; color:var(--nav-bg);">LinkedIn</h4>
+          <p style="margin:0;">
+            <a href="https://www.linkedin.com/in/rushikesh-abhale" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline;">
+              rushikesh-abhale
+            </a>
+          </p>
+        </div>
+      </div>
 
       <!-- Column 2: Contact Form -->
       <div class="contact-form" style="flex:1; min-width:280px;">
-        <form action="https://formspree.io/f/xrbnkbjy" method="POST" style="display:flex; flex-direction:column; gap:12px;">
+        <form id="contactForm" action="https://formspree.io/f/xrbnkbjy" method="POST" style="display:flex; flex-direction:column; gap:12px;">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" placeholder="Your Name" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; font-family:Inter;">
 
@@ -884,21 +886,14 @@
           <textarea id="message" name="message" rows="5" placeholder="Your Message" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; font-family:Inter;"></textarea>
 
           <button type="submit" class="btn-primary" style="margin-top:8px;">Send Message</button>
+
+          <p id="formMessage" style="display:none; color:green; margin-top:12px;">Thank you! Your message has been sent.</p>
         </form>
       </div>
 
     </div>
   </div>
 </section>
-
-<form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <textarea name="message" placeholder="Your Message" required></textarea>
-  <button type="submit">Submit</button>
-</form>
-
-<p id="formMessage" style="display:none; color:green; margin-top:12px;">Thank you! Your message has been sent.</p>
 
 <script>
 const form = document.getElementById('contactForm');
@@ -916,6 +911,8 @@ form.addEventListener('submit', async (e) => {
 
   if (response.ok) {
     messageEl.style.display = 'block';
+    messageEl.style.color = 'green';
+    messageEl.textContent = 'Thank you! Your message has been sent.';
     form.reset();
   } else {
     messageEl.style.display = 'block';
@@ -924,6 +921,7 @@ form.addEventListener('submit', async (e) => {
   }
 });
 </script>
+
     
   </main>
 
