@@ -1163,5 +1163,29 @@ premiumRows.forEach(row => premiumObserver.observe(row));
   </div>
 </div>
 
+<script>
+  // Track top-right download button
+  document.getElementById('downloadBtn').addEventListener('click', function() {
+    gtag('event', 'download', {
+      'event_category': 'Portfolio',
+      'event_label': 'Top Right Button'
+    });
+  });
+
+  // Track bottom download button
+  document.querySelectorAll('a[download]').forEach(function(btn) {
+    if (!btn.id) { // Skip the top-right one already tracked
+      btn.addEventListener('click', function() {
+        gtag('event', 'download', {
+          'event_category': 'Portfolio',
+          'event_label': 'Bottom Section Button'
+        });
+      });
+    }
+  });
+</script>
+
+
+  
 </body>
 </html>
